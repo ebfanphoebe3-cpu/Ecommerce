@@ -1,0 +1,563 @@
+/* -----Main----- */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background-color: #f2e8d2;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #1b1a19;
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-warning {
+  background-color: #ffc531;
+  border: 2px solid #ffc531;
+  color: #2b1810;
+  font-weight: 800;
+  border-radius: 50px;
+  padding: 0.55rem 1.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: #c8281e;
+  border-color: #c8281e;
+  color: #ffffff;
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: transparent !important;
+  border-bottom: none;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+ 
+.navbar-collapse.show {
+  background-color: rgba(43, 24, 16, 0.95);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+ 
+.navbar-brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  color: #ffc531 !important;
+}
+ 
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+ 
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+ 
+.navbar .nav-link {
+  color: #f3e7d6;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+ 
+.navbar .nav-link:hover {
+  color: #ffc531;
+}
+ 
+.navbar .nav-link.active {
+  color: #2b1810;
+  background-color: #ffc531;
+}
+ 
+.navbar .form-control {
+  border-radius: 50px;
+  border: 2px solid transparent;
+}
+ 
+.navbar .form-control:focus {
+  border-color: #ffc531;
+  box-shadow: none;
+}
+ 
+.navbar .btn-outline-success {
+  color: #ffc531;
+  border: 2px solid #ffc531;
+  border-radius: 50px;
+  font-weight: 700;
+}
+ 
+.navbar .btn-outline-success:hover {
+  background-color: #ffc531;
+  color: #2b1810;
+}
+ 
+
+/* ---------- Banner / Carousel ---------- */
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item img {
+  height: 72vh;
+  min-height: 380px;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+/* dark gradient so the caption text is always readable */
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(43, 24, 16, 0.85) 0%, rgba(43, 24, 16, 0.35) 55%, rgba(43, 24, 16, 0.1) 100%);
+}
+
+.carousel-caption {
+  z-index: 2;
+  bottom: 14%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.carousel-caption h1,
+.carousel-caption h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #ffc531;
+  height: 5px;
+}
+
+/* ---------- Featured dishes ---------- */
+section > h1 {
+  text-align: center;
+  color: #c8281e;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 4rem 1rem 0.5rem;
+}
+
+section > h1 + p {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #4a3228;
+  margin: 0 1rem 2.5rem;
+}
+
+section > h1 + p::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 5px;
+  margin: 1.1rem auto 0;
+  border-radius: 5px;
+  background: #ffc531;
+}
+
+/* lay the dish cards out in a responsive grid */
+.container:has(> .card) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  max-width: 1140px;
+  padding-bottom: 4rem;
+}
+
+.card {
+  width: 100% !important; /* overrides the inline 18rem width */
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(43, 24, 16, 0.12);
+}
+
+.card-img-top {
+  height: 210px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+}
+
+.card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #2b1810;
+}
+
+.card-text {
+  color: #4a3228;
+  flex-grow: 1;
+}
+
+.dish-price {
+  align-self: flex-start;
+  background-color: #c8281e;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  margin: 0.25rem 0 1rem;
+}
+
+.card-body .btn {
+  align-self: flex-start;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  background-color: #ffc531;
+  margin-top: 1rem;
+  padding-bottom: 5rem !important; /* space between cards and footer */
+}
+ 
+.testimonials h2 {
+  color: #2b1810;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+}
+ 
+.testimonial-card {
+  position: relative;
+  height: 100%;
+  margin-top: 45px; /* room for the photo that overlaps the top */
+  padding: 3.2rem 1.5rem 1.75rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(43, 24, 16, 0.18);
+}
+ 
+.customer-img {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #c8281e;
+  background-color: #fffaf0;
+}
+ 
+.testimonial-content {
+  position: relative;
+}
+ 
+.quote {
+  position: absolute;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: #c8281e;
+  opacity: 0.25;
+}
+ 
+.quote-left {
+  top: -0.6rem;
+  left: -0.4rem;
+}
+ 
+.quote-right {
+  bottom: -2.2rem;
+  right: -0.4rem;
+}
+ 
+.stars {
+  color: #e5a912;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+ 
+.testimonial-content p {
+  color: #4a3228;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+ 
+.testimonial-content h4 {
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #c8281e;
+  margin: 0;
+}
+/* ---------- Footer ---------- */
+.crave-footer {
+  background-color: #2b1810;
+  color: #e9dccb;
+  padding: 3.5rem 0 1.5rem;
+}
+ 
+.footer-logo {
+  text-align: center;
+}
+ 
+.footer-logo h2 {
+  color: #ffc531;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin-bottom: 0.25rem;
+}
+ 
+.footer-logo p {
+  letter-spacing: 0.5em;
+  font-size: 0.8rem;
+  color: #cbb9a3;
+  margin: 0;
+}
+ 
+.footer-divider {
+  border: 0;
+  height: 2px;
+  background: rgba(255, 197, 49, 0.35);
+  margin: 2rem 0;
+  opacity: 1;
+}
+ 
+.footer-content {
+  row-gap: 2rem;
+}
+ 
+.footer-column h5 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  color: #ffc531;
+  font-size: 1.25rem;
+  margin-bottom: 1.1rem;
+}
+ 
+.footer-description {
+  line-height: 1.7;
+}
+ 
+.book-table {
+  display: inline-block;
+  background-color: #c8281e;
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  margin: 0.5rem 0 1.25rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+ 
+.book-table:hover {
+  background-color: #ffc531;
+  color: #2b1810;
+}
+ 
+.footer-contact {
+  color: #ffc531;
+  font-weight: 700;
+}
+ 
+.contact-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+ 
+.contact-item span:first-child {
+  color: #ffc531;
+}
+ 
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+ 
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffc531;
+  color: #ffc531;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+ 
+.footer-socials a:hover {
+  background-color: #ffc531;
+  color: #2b1810;
+}
+ 
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+.footer-links li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(233, 220, 203, 0.2);
+}
+ 
+.footer-links a {
+  display: flex;
+  justify-content: space-between;
+  color: #e9dccb;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+ 
+.footer-links a:hover {
+  color: #ffc531;
+}
+ 
+.footer-bottom {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(233, 220, 203, 0.2);
+  font-size: 0.9rem;
+  color: #b8a692;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ABOUT PAGE */
+.about-header {
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  background-color: #2b1810;
+  background-image: linear-gradient(rgba(43, 24, 16, 0.8), rgba(43, 24, 16, 0.8)),
+                    url("../images/restaurant-banner.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-header h1 {
+  color: white;
+  font-size: 48px;
+}
+
+.about-header .lead {
+  color: #ffc531;
+  font-weight: bold;
+}
+
+/* Headings and paragraphs */
+.about-page h2 {
+  color: #c8281e;
+  margin-bottom: 15px;
+}
+
+.about-page p {
+  color: #4a3228;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Light yellow background for the "Our Story" and "Why Choose" sections */
+.bg-light {
+  background-color: #fff0c9 !important;
+}
+
+/* Restaurant picture */
+.about-page img {
+  border-radius: 15px !important;
+}
+
+/* Mission and Vision cards (red line on top) */
+.about-page .col-md-6 .card {
+  border-top: 6px solid #c8281e;
+}
+
+/* Why Choose cards (yellow line on the bottom) */
+.about-page .col-md-3 .card {
+  border-bottom: 6px solid #ffc531;
+}
+
+/* Card titles */
+.about-page .card-title {
+  color: #c8281e;
+}
+/* Menu */
+header.py-5 {
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  background-color: #2b1810;
+  background-image: linear-gradient(rgba(43, 24, 16, 0.8), rgba(43, 24, 16, 0.8)), url("../images/restaurant-banner.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+header.py-5 h1 {
+  color: white;
+  font-size: 48px;
+}
+header.py-5 .lead {
+  color: #ffc531;
+  font-weight: bold;
+}
+/* Headings and paragraphs */
+.menu-page h2 {
+  color: #c8281e;
+}
+.menu-page p {
+  color: #4a3228;
+  font-size: 18px;
+  line-height: 1.7;
+}
+/* Food cards (yellow line on the bottom) */
+.menu-page .card {
+  border-bottom: 6px solid #ffc531;
+}
+/* Card titles */
+.menu-page .card-title {
+  color: #c8281e;
+}
+/* Price tag */
+.menu-page .fw-bold {
+  display: inline-block;
+  background-color: #c8281e;
+  color: white;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 0;
+}
